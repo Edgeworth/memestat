@@ -11,35 +11,42 @@ pub struct Sample {
 }
 
 impl Sample {
+    #[must_use]
     pub fn new() -> Self {
         Self { v: Vec::new() }
     }
 
     pub fn add(&mut self, v: f64) {
-        self.v.push(v)
+        self.v.push(v);
     }
 
+    #[must_use]
     pub fn vec(&self) -> &Vec<f64> {
         &self.v
     }
 
+    #[must_use]
     pub fn len(&self) -> usize {
         self.v.len()
     }
 
+    #[must_use]
     pub fn is_empty(&self) -> bool {
         self.v.is_empty()
     }
 
+    #[must_use]
     pub fn mean(&self) -> f64 {
         let v: Mean = self.v.iter().collect();
         v.mean()
     }
 
+    #[must_use]
     pub fn stddev(&self) -> f64 {
         self.variance().sqrt()
     }
 
+    #[must_use]
     pub fn variance(&self) -> f64 {
         let v: Variance = self.v.iter().collect();
         v.sample_variance()
