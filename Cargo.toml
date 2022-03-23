@@ -1,7 +1,10 @@
 [package]
 authors = ["Eliot Courtney <edgeworth.dev@gmail.com>"]
+description = "stats library"
 edition = "2021"
+license = "MIT OR Apache-2.0"
 name = "memestat"
+repository = "https://github.com/Edgeworth/memestat"
 version = "0.1.0"
 
 [dependencies]
