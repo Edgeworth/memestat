@@ -2,14 +2,14 @@ use std::collections::BTreeMap;
 
 use crate::stats::sample_group::SampleGroup;
 
-// Grapher performs analysis and draws graphs of samples and sample groups.
+/// Grapher performs analysis and draws graphs of samples and sample groups.
+#[must_use]
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct Analyze {
     groups: BTreeMap<String, SampleGroup>,
 }
 
 impl Analyze {
-    #[must_use]
     pub fn new() -> Self {
         Self { groups: BTreeMap::new() }
     }
@@ -22,7 +22,7 @@ impl Analyze {
     pub fn analyse(&self) {
         for (k, v) in &self.groups {
             if let Ok(p) = v.analyse() {
-                println!("group {}, p {:.4}:\n{}", k, p, v);
+                println!("group {k}, p {p:.4}:\n{v}");
             }
         }
     }
