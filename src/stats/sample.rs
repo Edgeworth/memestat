@@ -3,7 +3,8 @@ use derive_more::Display;
 use eyre::{eyre, Result};
 use mathru::statistics::test::{Test, T};
 
-// Sample contains sampled values, e.g. times, distances, costs, etc.
+/// Sample contains sampled values, e.g. times, distances, costs, etc.
+#[must_use]
 #[derive(Debug, Display, Default, Clone, PartialOrd, PartialEq)]
 #[display(fmt = "Sample(mean={:.2}, dev={:.2})", "self.mean()", "self.stddev()")]
 pub struct Sample {
@@ -11,7 +12,6 @@ pub struct Sample {
 }
 
 impl Sample {
-    #[must_use]
     pub fn new() -> Self {
         Self { v: Vec::new() }
     }

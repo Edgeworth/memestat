@@ -4,8 +4,9 @@ use eyre::Result;
 
 use crate::stats::sample::Sample;
 
-// Group of samples of the same type to compare together.
-// TODO: Use ANOVA?
+/// Group of samples of the same type to compare together.
+// TODO(1): Use ANOVA?
+#[must_use]
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct SampleGroup {
     name: String,
@@ -15,14 +16,13 @@ pub struct SampleGroup {
 impl std::fmt::Display for SampleGroup {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         for (k, v) in &self.samples {
-            writeln!(f, "  {}: {}", k, v)?;
+            writeln!(f, "  {k}: {v}")?;
         }
         Ok(())
     }
 }
 
 impl SampleGroup {
-    #[must_use]
     pub fn new(name: &str) -> Self {
         Self { name: name.to_owned(), samples: BTreeMap::new() }
     }
