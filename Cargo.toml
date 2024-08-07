@@ -1,15 +1,15 @@
 [package]
 authors = ["Eliot Courtney <edgeworth.dev@gmail.com>"]
 description = "stats library"
-edition = "2021"
+edition = "2024"
 license = "MIT OR Apache-2.0"
 name = "memestat"
 repository = "https://github.com/Edgeworth/memestat"
 version = "0.1.0"
 
 [dependencies]
-average = "0.13.1"
-derive_more = "0.99.17"
-eyre = "0.6.8"
-mathru = "0.14.0"
-rand = "0.8.5"
+average = "0.15.1"
+derive_more = {version = "2.0.1", features = ["display"]}
+eyre = "0.6.12"
+mathru = "0.15.5"
+rand = "0.9.0"

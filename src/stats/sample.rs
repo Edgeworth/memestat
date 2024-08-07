@@ -1,12 +1,12 @@
 use average::{Mean, Variance};
 use derive_more::Display;
-use eyre::{eyre, Result};
-use mathru::statistics::test::{Test, T};
+use eyre::{Result, eyre};
+use mathru::statistics::test::{T, Test};
 
 /// Sample contains sampled values, e.g. times, distances, costs, etc.
 #[must_use]
 #[derive(Debug, Display, Default, Clone, PartialOrd, PartialEq)]
-#[display(fmt = "Sample(mean={:.2}, dev={:.2})", "self.mean()", "self.stddev()")]
+#[display("Sample(mean={:.2}, dev={:.2})", self.mean(), self.stddev())]
 pub struct Sample {
     v: Vec<f64>,
 }
