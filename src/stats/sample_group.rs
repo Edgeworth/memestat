@@ -29,7 +29,7 @@ impl SampleGroup {
 
     // Adds the sampled value to the Sample with name |id|.cd
     pub fn add(&mut self, id: &str, v: f64) {
-        self.samples.entry(id.to_owned()).or_insert_with(Sample::new).add(v);
+        self.samples.entry(id.to_owned()).or_default().add(v);
     }
 
     pub fn analyse(&self) -> Result<f64> {
